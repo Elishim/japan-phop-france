@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Japan france shop</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap");
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+     :root {
+        --primary: #ed3d4e;
+        --smoke: whitesmoke;
+        --dark-gray: #999;
+    }
+    
+    .types {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px 2em;
+    }
+    
+    .types :first-child {
+        align-self: center;
+    }
+    
+    img.produit {
+        height: 300px;
+        width: 290px;
+    }
+    
+    button.btno {
+        background: #ed3d4e;
+        border-radius: 10%;
+        border-width: 2px;
+        border-style: groove;
+        border-color: black;
+        width: 90px;
+        height: 35px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    body {
+        font-family: "Lato", sans-serif;
+        background: #efebeb;
+        color: var(--pure);
+    }
+    
+    .container {
+        width: 1152px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    div.abc {
+        background: #ffffff;
+    }
+    
+    .nav-wrapper {
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .brand {
+        display: flex;
+        align-items: center;
+    }
+    
+    .brand svg {
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .brand svg path {
+        fill: var(--pure);
+    }
+    
+    nav {
+        background-color: white;
+    }
+    
+    .cadi {
+        transform: translateX(100%);
+    }
+    
+    .nav-wrapper ul.nav-list {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-wrapper ul.nav-list li {
+        margin-left: 40px;
+        padding: 20px 0;
+        position: relative;
+    }
+    
+    .nav-wrapper ul.nav-list li a {
+        color: var(--pure);
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .nav-wrapper ul.nav-list li a:hover,
+    .nav-wrapper ul.nav-list li.active a {
+        color: var(--primary);
+    }
+    
+    div.article {
+        border-width: 2px;
+        border: black;
+        border-style: double;
+    }
+    
+    .btn {
+        background: var(--primary);
+        color: var(--pure);
+        outline: none;
+        padding: 8px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        letter-spacing: 1px;
+        border: 1px solid transparent;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .btn:hover {
+        background: transparent;
+        border-color: var(--pure);
+    }
+    
+    main section.header {
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-size: cover;
+        width: 100%;
+        height: 900px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2015/06/12/720386/e4c8741d3420dfa2276024100611be0e.jpg");
+    }
+    
+    section.shop {
+        align-items: center;
+        vertical-align: auto;
+        justify-content: center;
+    }
+    
+    div.types {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    main section.header h1 {
+        font-size: 56px;
+        font-weight: 100;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+    
+    main section.shop h1 {
+        font-size: 36px;
+        font-weight: 100;
+        text-transform: capitalize;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    main section.header h4 {
+        font-size: 28px;
+        font-weight: 400;
+        color: black;
+        margin-bottom: 20px;
+    }
+    
+    nav ul.dropdown-list {
+        list-style-type: none;
+        display: block;
+        background: var(--smoke);
+        padding: 6px 16px;
+        position: absolute;
+        width: max-content;
+        z-index: 9999;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    p {
+        margin-top: 60px;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    
+    .nav-wrapper ul.dropdown-list li {
+        margin-left: 0;
+        padding: 5px 0;
+    }
+    
+    .nav-wrapper ul.dropdown-list li a {
+        color: var(--dark);
+    }
+    
+    .nav-wrapper ul.nav-list li:hover .dropdown-list {
+        opacity: 1;
+        pointer-events: auto;
+        animation: moveUp 0.5s ease-in-out forwards;
+    }
+    
+    @keyframes moveUp {
+        0% {
+            opacity: 0;
+            transform: translateX(-50%) translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-50%) translateY(20px);
+        }
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    h1.categorie {
+        margin-top: 50px;
+    }
+    
+    .mobile .hamburger {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        cursor: pointer;
+    }
+    
+    .mobile .hamburger span {
+        background: var(--pure);
+        width: 28px;
+        height: 2px;
+        margin-bottom: 8px;
+    }
+    
+    .mobile ul.nav-list {
+        background: -webkit-linear-gradient(45deg, #434343, #000000);
+        background: linear-gradient(45deg, #434343, #000000);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 80px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .hamburger,
+    .brand {
+        z-index: 9999;
+    }
+    
+    .mobile ul.nav-list.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .mobile .hamburger span {
+        transform-origin: left;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile ul.nav-list li a {
+        font-size: 20px;
+    }
+    
+    .mobile ul.dropdown-list {
+        position: relative;
+        background: transparent;
+        text-align: center;
+        height: 0;
+        overflow-y: hidden;
+        transition: opacity 1s ease-in-out;
+        padding-top: 0;
+    }
+    
+    h1.email {
+        margin-left: 40%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .mobile .nav-wrapper ul li:hover .dropdown-list {
+        height: max-content;
+        padding-top: 6px;
+    }
+    
+    .mobile ul.nav-list li {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .mobile .nav-wrapper ul.dropdown-list li a {
+        color: var(--dark-gray);
+    }
+</style>
+
+<body class="mobile">
+    <nav>
+        <div class="sticky-div">
+            <div class="container nav-wrapper">
+                <div class="brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"></svg>
+                    <span><strong>LOGO</strong></span>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="#about">Qui sommes nous ? </a></li>
+                    <li>
+                        <a href="#">Acheter</a>
+                        <ul class="dropdown-list">
+                            <li><a href="#riz">Riz</a></li>
+                            <li><a href="#boissons">Boissons</a></li>
+                            <li><a href="#box">Box</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Nous contacter</a></li>
+                    <li>
+                        <button class="btn">Connection</button>
+                    </li>
+                    <li>
+                        <button class="btn">Inscription</button>
+                    </li>
+                    <li class="cadi"><a href="#">Pannier</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="header container">
+            <div>
+                <h1>Bienvenue sur japan shop france</h1>
+                <h4>Des échanges franco-japonnais au profit de tous !</h4>
+            </div>
+        </section>
+        <section class="shop">
+            <h1 class="categorie">Nos riz</h1>
+            <div class="types" id="riz">
+                <div class="article">
+                    <h1>shinode</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/OIP.mI7do3kNTYVq7z-BKtCqSgHaHa?w=201&h=201&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+                <div class="article">
+                    <h1>yumenishiki</h1>
+                    <img class="produit" src="https://images.japancentre.com/images/pics/12448/large/2263-yumenishiki-10kg.jpg?1548763720" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+            </div>
+            <h1 class="categorie">Nos Boissons</h1>
+            <div class="types" id="boissons">
+                <div class="article">
+                    <h1>ramune</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/R.9c2ca31564d8b19d9951971e6ffef881?rik=8PcnrpR2x3eoIg&pid=ImgRaw&r=0" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+                <div class="article">
+                    <h1>o cha</h1>
+                    <img class="produit" src="https://yt3.ggpht.com/a/AATXAJxN_SiqJ4clkCZCpLbKqiDk8EAvzN7KuteGQA=s900-c-k-c0xffffffff-no-rj-mo" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+            </div>
+            <h1 class="categorie">Nos box</h1>
+            <div class="types" id="box">
+                <div class="article">
+                    <h1>sushi</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/R.60be28cbffd69cd47a4769607c9d9805?rik=aR0f4r%2bfkeoUBQ&pid=ImgRaw&r=0" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+                <div class="article">
+                    <h1>caree</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/R.5f683718a4eb805a4d4436a36e7064e1?rik=pLUKiv2AX8VexQ&riu=http%3a%2f%2fwww.cuisinetamere.fr%2fwp-content%2fuploads%2fcurry-japonais.jpg&ehk=Y3IyjkQMdfsWE7sSbvfzPupAIFkew7NM6I1D7jbSbIA%3d&risl=&pid=ImgRaw&r=0"
+                        alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+                <div class="article">
+                    <h1>udon</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/OIP.zTYPXgL8YAxV6xN5yOa-HgHaHa?pid=ImgDet&rs=1" alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+                <div class="article">
+                    <h1>ramen</h1>
+                    <img class="produit" src="https://th.bing.com/th/id/R.563bff7df890b7c1b97e87f6c1dd51f1?rik=6%2bq6pNFyYL9X2g&riu=http%3a%2f%2fejournalz.com%2fwp-content%2fuploads%2f2019%2f05%2framen_3000.jpg&ehk=kaFvx49twT4UCnTEHCxWII2Kq3Mq8c%2b%2fQFpvbyl4aWw%3d&risl=&pid=ImgRaw&r=0"
+                        alt="" />
+                    <h2>prix</h2>
+                    <button class="btno">Acheter</button>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, illo at repudiandae voluptatum vitae numquam modi, temporibus libero itaque error praesentium nobis assumenda fugit aut dicta omnis animi doloremque ab. Praesentium ut laboriosam maiores consectetur,
+                delectus ipsum quis, tempora expedita ducimus laudantium eaque veniam provident libero voluptatibus! Provident accusantium iure sed id exercitationem architecto excepturi, culpa mollitia expedita doloribus saepe? Quidem dolores deserunt
+                tenetur repudiandae, ratione dolore asperiores distinctio aliquam. Consequatur, dolorem quod. Animi aliquid sed illum, explicabo quae esse, similique ipsam at, adipisci optio et placeat cum vitae accusantium. In, eius! Fuga quaerat repellendus
+                dolore magni provident quis? Consectetur praesentium perspiciatis, rem inventore et aperiam nobis? Magnam, rem, corporis nemo cupiditate iusto soluta, laborum eos nesciunt quod ipsum quo. Suscipit excepturi ad minima consequatur fuga praesentium
+                voluptas odio unde dicta. Blanditiis velit voluptate ab, voluptates nihil obcaecati. Vel laudantium iusto fugiat minima saepe, molestiae impedit eveniet ut odit! Possimus. Vero delectus quis dicta suscipit possimus quo pariatur voluptatibus
+                architecto aliquam officiis cum tempora, provident veniam? Aut animi nihil ullam dignissimos, debitis voluptate facilis ad itaque cumque quam deserunt nesciunt. Perferendis facere, impedit possimus eum dolor natus debitis officia, nihil
+                ratione dolorem, nulla nemo rerum repellendus. Provident, libero. Ex laudantium dignissimos ut fuga dolores ducimus consequatur quam est? Eum, maxime! Magni assumenda est expedita consequatur ut dolor placeat, iste voluptatem aut corrupti
+                saepe, accusantium id, fuga officiis. Nam repellendus tempore ipsa commodi accusamus pariatur. Veniam blanditiis adipisci impedit quas nisi? Officiis dolores expedita dignissimos, quia aperiam laboriosam hic quaerat, facere explicabo voluptate
+                numquam voluptatibus eligendi at quo sit maxime sunt. Molestiae eum officia, optio placeat voluptate explicabo deleniti facere. Ratione. Quidem sequi, provident at aperiam velit quisquam voluptatem doloribus labore sunt, illum est exercitationem
+                quae quos reiciendis consectetur. Deleniti beatae modi maxime adipisci aliquam accusamus excepturi nulla, perferendis quia error.
+            </p>
+        </section>
+
+        <section class="contact" id="contact">
+            <h1 class="email">
+                nous contecter : <br /> vbzkjbzkjebvkel@gmail.com
+            </h1>
+        </section>
+    </main>
+    <script>
+        window.addEventListener("resize", function() {
+            addRequiredClass();
+        });
+
+        function addRequiredClass() {
+            if (window.innerWidth < 860) {
+                document.body.classList.add("mobile");
+            } else {
+                document.body.classList.remove("mobile");
+            }
+        }
+
+        window.onload = addRequiredClass;
+
+        let hamburger = document.querySelector(".hamburger");
+        let mobileNav = document.querySelector(".nav-list");
+
+        let bars = document.querySelectorAll(".hamburger span");
+
+        let isActive = false;
+
+        hamburger.addEventListener("click", function() {
+            mobileNav.classList.toggle("open");
+            if (!isActive) {
+                bars[0].style.transform = "rotate(45deg)";
+                bars[1].style.opacity = "0";
+                bars[2].style.transform = "rotate(-45deg)";
+                isActive = true;
+            } else {
+                bars[0].style.transform = "rotate(0deg)";
+                bars[1].style.opacity = "1";
+                bars[2].style.transform = "rotate(0deg)";
+                isActive = false;
+            }
+        });
+
+        stickyElem = document.querySelector(".sticky-div");
+
+        /* Gets the amount of height
+                          of the element from the
+                          viewport and adds the
+                          pageYOffset to get the height
+                          relative to the page */
+        currStickyPos =
+            stickyElem.getBoundingClientRect().top + window.pageYOffset;
+
+        window.onscroll = function() {
+            /* Check if the current Y offset
+                                                                                                                                is greater than the position of
+                                                                                                                                the element */
+            if (window.pageYOffset > currStickyPos) {
+                stickyElem.style.position = "fixed";
+                stickyElem.style.top = "0px";
+            } else {
+                stickyElem.style.position = "relative";
+                stickyElem.style.top = "initial";
+                stickyElem.style.background = "white";
+                stickyElem.style.width = "100%";
+            }
+        };
+    </script>
+</body>
+
+</html>
